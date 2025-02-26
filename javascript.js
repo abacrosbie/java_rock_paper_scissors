@@ -22,10 +22,25 @@ let humanScore = 0 // Sets scores
 let computerScore = 0 
 
 function playRound(humanChoice, computerChoice){
-   if (humanChoice === computerChoice){
-    return "lol draw";
+   if (humanChoice === computerChoice) {
+    return "A draw! Score remains: " + humanScore + " | " + computerScore;
+   } 
+   else if (humanChoice === "Rock" && computerChoice === "Paper") {
+    computerScore++;
+    return "Ooo bad luck, Paper beats Rock! " + humanScore + " | " + computerScore;
+   } 
+   else if (humanChoice === "Paper" && computerChoice === "Scissors") {
+    computerScore++;
+    return "Oh man, Scissors beats Paper! " + humanScore + " | " + computerScore;
    }
-   else {return "Nah mate";}
+   else if (humanChoice === "Scissors" && computerChoice === "Rock") {
+    computerScore++;
+    return "Whoops! Rock beats Scissors! " + humanScore + " | " + computerScore;
+   }
+   else {
+    humanScore++;
+    return "Nice! " + humanChoice + " beats " + computerChoice + " " + humanScore + " | " + computerScore;
+   }
 }
 
 
