@@ -14,6 +14,13 @@ function getComputerChoice(){
     }
 }
 
-console.log(getComputerChoice());
+console.log(getComputerChoice()); // Show computer choice
 
 
+function getHumanChoice(humanChoice){ // Sets human choice
+    humanChoice = prompt("Rock, Paper or Scissors?"); // Prompts user to enter choice
+    return humanChoice;
+}
+
+
+console.log(getHumanChoice()); // Show Human choice
