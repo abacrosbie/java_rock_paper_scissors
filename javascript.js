@@ -45,11 +45,13 @@ function playRound(humanChoice, computerChoice){
 
 
 
+
+
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 
-playRound(humanSelection, computerSelection);
+//playRound(humanSelection, computerSelection);
 
-console.log(humanChoice)
-console.log(computerChoice)
+//console.log(humanChoice)
+//console.log(computerChoice)
 console.log(playRound(humanChoice,computerChoice))
