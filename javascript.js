@@ -4,18 +4,18 @@ function getComputerChoice(){
     let computerValueChoice = Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled); //Randomises choice   
     
     if (computerValueChoice === 1){ // Converts random number to 'Rock, Paper or Scissors'
-        computerChoice = "Rock";
+        computerChoice = "rock";
     }
     else if (computerValueChoice === 2){
-        computerChoice = "Paper";
+        computerChoice = "paper";
     }
     else if (computerValueChoice === 3){
-        computerChoice = "Scissors";
+        computerChoice = "scissors";
     }
 }
 
 function getHumanChoice(){ // Sets human choice
-    humanChoice = prompt("Rock, Paper or Scissors?"); // Prompts user to enter choice
+    humanChoice = prompt("Rock, Paper or Scissors?").toLowerCase(); // Prompts user to enter choice
 }
 
 let humanScore = 0 // Sets scores
@@ -25,15 +25,15 @@ function playRound(humanChoice, computerChoice){
    if (humanChoice === computerChoice) {
     return "A draw! Score remains: " + humanScore + " | " + computerScore;
    } 
-   else if (humanChoice === "Rock" && computerChoice === "Paper") {
+   else if (humanChoice === "rock" && computerChoice === "paper") {
     computerScore++;
     return "Ooo bad luck, Paper beats Rock! " + humanScore + " | " + computerScore;
    } 
-   else if (humanChoice === "Paper" && computerChoice === "Scissors") {
+   else if (humanChoice === "paper" && computerChoice === "scissors") {
     computerScore++;
     return "Oh man, Scissors beats Paper! " + humanScore + " | " + computerScore;
    }
-   else if (humanChoice === "Scissors" && computerChoice === "Rock") {
+   else if (humanChoice === "scissors" && computerChoice === "rock") {
     computerScore++;
     return "Whoops! Rock beats Scissors! " + humanScore + " | " + computerScore;
    }
