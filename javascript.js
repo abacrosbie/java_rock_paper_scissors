@@ -12,40 +12,47 @@ function getComputerChoice(){
     else if (computerValueChoice === 3){
         computerChoice = "scissors";
     }
+    return computerChoice;
 }
 
 function getHumanChoice(){ // Sets human choice
     humanChoice = prompt("Rock, Paper or Scissors?").toLowerCase(); // Prompts user to enter choice
+    return humanChoice;
 }
 
-let humanScore = 0 // Sets scores
-let computerScore = 0 
 
-function playRound(humanChoice, computerChoice){
-   if (humanChoice === computerChoice) {
-    return "A draw! Score remains: " + humanScore + " | " + computerScore;
-   } 
-   else if (humanChoice === "rock" && computerChoice === "paper") {
-    computerScore++;
-    return "Ooo bad luck, Paper beats Rock! " + humanScore + " | " + computerScore;
-   } 
-   else if (humanChoice === "paper" && computerChoice === "scissors") {
-    computerScore++;
-    return "Oh man, Scissors beats Paper! " + humanScore + " | " + computerScore;
-   }
-   else if (humanChoice === "scissors" && computerChoice === "rock") {
-    computerScore++;
-    return "Whoops! Rock beats Scissors! " + humanScore + " | " + computerScore;
-   }
-   else {
-    humanScore++;
-    return "Nice! " + humanChoice + " beats " + computerChoice + " " + humanScore + " | " + computerScore;
-   }
+function playGame(){
+
+    let humanScore = 0; // Sets scores and round
+    let computerScore = 0;
+
+    function playRound(humanChoice, computerChoice) {
+    if (humanChoice === computerChoice) {
+        return "A draw! Score remains: " + humanScore + " | " + computerScore;
+    } 
+    else if (humanChoice === "rock" && computerChoice === "paper") {
+        computerScore++;
+        return "Ooo bad luck, Paper beats Rock! " + humanScore + " | " + computerScore;
+    } 
+    else if (humanChoice === "paper" && computerChoice === "scissors") {
+        computerScore++;
+        return "Oh man, Scissors beats Paper! " + humanScore + " | " + computerScore;
+    }
+    else if (humanChoice === "scissors" && computerChoice === "rock") {
+        computerScore++;
+        return "Whoops! Rock beats Scissors! " + humanScore + " | " + computerScore;
+    }
+    else {
+        humanScore++;
+        return "Nice! " + humanChoice + " beats " + computerChoice + " " + humanScore + " | " + computerScore;
+    }
+    }
+
+
+        for (roundNumber = 0; roundNumber < 5; roundNumber++) { // Counts round numbers
+            playRound(getHumanChoice(), getComputerChoice());
+        }
+        console.log("Game Over final score: You Got: " + humanScore + " | I got: " + computerScore); // Outputs final results
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
-//console.log(humanChoice)
-//console.log(computerChoice)
-console.log(playRound(humanChoice,computerChoice))
+playGame()
