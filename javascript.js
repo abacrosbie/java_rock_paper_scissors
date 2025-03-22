@@ -1,3 +1,14 @@
+function alertFunction() {
+    alert("hey game over");
+  }
+  const btn = document.querySelector("#btnRoc");
+  //const btn = document.querySelector("#btnPap");
+  //const btn = document.querySelector("#btnSci");
+
+  btn.addEventListener("click", alertFunction);
+
+
+
 function getComputerChoice(){
     const minCeiled = Math.ceil(1); // Sets minimum
     const maxFloored = Math.floor(3); // Sets maximum
@@ -49,9 +60,9 @@ function playGame(){
     }
 
 
-        for (roundNumber = 0; roundNumber < 5; roundNumber++) { // Counts round numbers
-            playRound(getHumanChoice(), getComputerChoice());
-        }
+    //    for (roundNumber = 0; roundNumber < 5; roundNumber++) { // Counts round numbers
+    //        playRound(getHumanChoice(), getComputerChoice());
+    //    }
         console.log("Game Over final score: You Got: " + humanScore + " | I got: " + computerScore); // Outputs final results
 }
 
