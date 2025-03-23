@@ -4,6 +4,7 @@ const container = document.querySelector("#container");
 // Sets scores and round
 let humanScore = 0; 
 let computerScore = 0;
+const maxScore = 5;
 
 //randomly gets computer choice
 function getComputerChoice(){
@@ -46,16 +47,36 @@ else {
 }
 }
 
+//winner message function
+function declareWinner(message) {
+    const winnerMessage = document.createElement("h2");
+    winnerMessage.textContent = message;
+    container.appendChild(winnerMessage);
+}
+
 //button click function to play a round
 function buttonClick(event) {
+    //stops game if there's a winner
+    if (humanScore >= maxScore || computerScore >= maxScore) {
+        return;
+    }
+
     let humanChoice = event.target.textContent.toLowerCase();
     let computerChoice = getComputerChoice();
     let result = playRound(humanChoice, computerChoice);
+
         //append round results to container
         const content = document.createElement("div");
         content.classList.add("content");
         content.textContent = result;
         container.appendChild(content);
+    
+    //calls declare winner function
+    if (humanScore === maxScore) {
+        declareWinner("You Won! Have a peanut!");
+    } else if (computerScore === maxScore) {
+        declareWinner("Ooo tough luck buddy, you lost!");
+    }
 }
 
 //button listeners
