@@ -1,13 +1,5 @@
-function alertFunction() {
-    alert("hey game over");
-  }
-  const btn = document.querySelector("#btnRoc");
-  //const btn = document.querySelector("#btnPap");
-  //const btn = document.querySelector("#btnSci");
-
-  btn.addEventListener("click", alertFunction);
-
-
+let humanScore = 0; // Sets scores and round
+let computerScore = 0;
 
 function getComputerChoice(){
     const minCeiled = Math.ceil(1); // Sets minimum
@@ -25,17 +17,6 @@ function getComputerChoice(){
     }
     return computerChoice;
 }
-
-function getHumanChoice(){ // Sets human choice
-    humanChoice = prompt("Rock, Paper or Scissors?").toLowerCase(); // Prompts user to enter choice
-    return humanChoice;
-}
-
-
-function playGame(){
-
-    let humanScore = 0; // Sets scores and round
-    let computerScore = 0;
 
     function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
@@ -59,11 +40,14 @@ function playGame(){
     }
     }
 
+    function buttonClick(event) {
+        let humanChoice = event.target.textContent.toLowerCase();
+        let computerChoice = getComputerChoice();
 
-    //    for (roundNumber = 0; roundNumber < 5; roundNumber++) { // Counts round numbers
-    //        playRound(getHumanChoice(), getComputerChoice());
-    //    }
-        console.log("Game Over final score: You Got: " + humanScore + " | I got: " + computerScore); // Outputs final results
-}
+        let result = playRound(humanChoice, computerChoice);
+        console.log(result);
+    }
 
-playGame()
+    document.getElementById("btnRoc").addEventListener("click", buttonClick);
+    document.getElementById("btnPap").addEventListener("click", buttonClick);
+    document.getElementById("btnSci").addEventListener("click", buttonClick);
