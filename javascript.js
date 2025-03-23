@@ -1,3 +1,6 @@
+//container in html
+const container = document.querySelector("#container");
+
 // Sets scores and round
 let humanScore = 0; 
 let computerScore = 0;
@@ -48,7 +51,11 @@ function buttonClick(event) {
     let humanChoice = event.target.textContent.toLowerCase();
     let computerChoice = getComputerChoice();
     let result = playRound(humanChoice, computerChoice);
-    console.log(result);
+        //append round results to container
+        const content = document.createElement("div");
+        content.classList.add("content");
+        content.textContent = result;
+        container.appendChild(content);
 }
 
 //button listeners
